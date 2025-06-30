@@ -1,0 +1,19 @@
+.main-title {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-top: 20px;
+}
+.slide-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.quote {
+    margin: 1em 0;
+    padding: 0.8em 1.2em;
+    background: #f9f9fb;
+    border-left: 4px solid #4a90e2;
+    border-radius: 6px;
+    color: #333;
+    font-style: italic;
+}
