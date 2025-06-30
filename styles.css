@@ -6,7 +6,7 @@
 }
 .slide-title {
     font-size: 1.5em;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 .quote {
     display: flex;
@@ -14,4 +14,7 @@
     border-left: 4px solid #4a90e2;
     border-radius: 6px;
     font-style: italic;
+}
+li {
+    margin-bottom: 10px;
 }
