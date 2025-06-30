@@ -8,14 +8,20 @@ Reichman University
 ## Motivation
 
 - **Derandomization** is believed to be possible with *only* polynomial slow down
+<span class="fragment">
 - **Computational Number Theory** features problems where randomized algorithms significantly outperform deterministic ones
+</span>
 
 ---
 
 ## Integer Factorization Derandomization
 - Fundamental to the security of **RSA encryption**, which relies on the hardness of factoring $N = pq$ for large primes $p, q$
+<span class="fragment">
 - Best known randomized algorithm runs in time $\exp(\tilde{O}(\sqrt{\log N}))$
+</span>
+<span class="fragment">
 - Best known deterministic algorithms from the 70's were $N^{1/4+o(1)}$
+</span>
 > By Strassen and Pollard
 - Recent (2021-22) deterministic breakthroughs achieved $N^{1/5+o(1)}$
 > By Hittmeir and Harvey
