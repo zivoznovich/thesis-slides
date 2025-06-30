@@ -18,3 +18,16 @@
 li {
     margin-bottom: 10px;
 }
+.reveal {
+    font-size: 2vw;
+}
+
+@media only screen and (max-width: 600px) {
+    .reveal {
+        font-size: 4vw;
+    }
+
+    .reveal .slides section {
+        padding: 10px;
+    }
+}

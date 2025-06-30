@@ -4,8 +4,8 @@
 		 <meta charset="utf-8" />
 		 <title>On Deterministically Finding an Element of High Order Modulo a Composite</title>
 		 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css" />
-		 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.css" id="theme" />
+		 <link rel="stylesheet" href="dist/reveal.css" />
+		 <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
 		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
@@ -67,7 +67,7 @@
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">Previous Results - Hittmeir&#39;s Algorithm (2018)</div>
+					<div class="slide-title">Previous Results - Hittmeir's Algorithm (2018)</div>
 					<ul>
 						<li class="fragment">Given composite $N$ and $D \ge N^{2/5}$</li>
 						<li class="fragment">Runs in time $D^{1/2+o(1)}$</li>
@@ -106,21 +106,17 @@
 				<section>
 					<div class="slide-title">Main Algorithm Simplified Overview</div>
 					<ul>
-						<li class="fragment">Try $a = 2, 3, \dots$<ul>
-							<li class="fragment"><strong>While</strong> $a^M\equiv 1 \pmod N$: $a\gets a+1$</li>
-							<li class="fragment">Let $m = \mathrm{ord}_N(a)$</li>
-							<li class="fragment"><strong>If</strong> $m &gt; D$: <strong>return</strong> $a$</li>
-							<li class="fragment"><strong>Else</strong>:<ul>
-								<li class="fragment">$M \gets \mathrm{lcm}(M, m)$</li>
+						<li class="fragment">Try $a = 2, 3, \dots$
+							<ul>
+								<li class="fragment"><b>If</b> $\mathrm{ord}_N(a)>D$ <b>return</b> $a$</li>
+								<li class="fragment">$M \gets \mathrm{lcm}(M, \mathrm{ord}_N(a))$</li>
+								<li class="fragment"><b>If</b> $M \ge D$
+									<ul>
+										<li class="fragment">Deduce that all prime divisors of $N$ are $1\pmod M$
+											</br> and use this to factor $N$</li>
+									</ul>
+								</li>
 							</ul>
-							</li>
-						</ul>
-						</li>
-						<li class="fragment">When $M \ge D$<ul>
-							<li class="fragment">Learn $p\equiv 1 \pmod M$ for divisors of $N$</li>
-							<li class="fragment">Use this to factor $N$</li>
-						</ul>
-						</li>
 					</ul>
 				</section>
 				<section>
@@ -138,14 +134,6 @@
 						</ul>
 						</li>
 						<li class="fragment"><strong>Time Complexity</strong>: $\tilde{O}(\sqrt{D})$</li>
-					</ul>
-				</section>
-				<section>
-					<div class="slide-title">Consecutive Roots Bound Improvement</div>
-					<ul>
-						<li class="fragment">Hittmeir upper bounds the number of consecutive elements $a$ satisfying $a^M\equiv 1 \pmod N$ by $M$</li>
-						<li class="fragment">Forbes, Kayal, Mittal and Saha (2011) give a bound on the number of common roots of a set of polynomials $S=\{(x+a_i)^\ell-\theta_i\}_{1\leq i\leq k}$</li>
-						<li class="fragment">We use their lemma to bound $a^M\equiv 1 \pmod N$ by $O(\sqrt{M})$ consecutive roots</li>
 					</ul>
 				</section>
 				<section>
@@ -174,11 +162,11 @@
 			</div>
 		</div>
 
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/math/math.js"></script>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
 
 		<script>
 			Reveal.initialize({
@@ -193,11 +181,13 @@
 						displayMath: [['$$', '$$'], ['\\[', '\\]']]
 					}
 				},
-				width: "90%",
-				height: "90%",
-				margin: 0.05,
+				width: "100%",
+				height: "100%",
+				margin: 0.1,
 				minScale: 0.2,
-				maxScale: 1.5
+				maxScale: 1.5,
+				controls: true,
+				responsive: true,
 			});
 		</script>
 	</body>
