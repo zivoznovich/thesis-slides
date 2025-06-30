@@ -2,6 +2,6 @@
 ## Ziv Oznovich and Ben Lee Volk
 ### Reichman University
 
-For slides view, Visit [here](https://zivoznovich.github.io/thesis-slides/)
+For slides view, visit [here](https://zivoznovich.github.io/thesis-slides/)
 
-For the full paper, Visit [here](https://arxiv.org/abs/2506.07668)
+For the full paper, visit [here](https://arxiv.org/abs/2506.07668)
