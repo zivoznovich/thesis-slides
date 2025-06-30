@@ -37,12 +37,12 @@
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
 
 <!-- MathJax script -->
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="plugin/math/math.js"></script>
 
 <script>
  Reveal.initialize({
   hash: true,
-  plugins: [ RevealMarkdown, RevealNotes, RevealHighlight ],
+  plugins: [ RevealMarkdown, RevealNotes, RevealHighlight, RevealMath.KaTeX ],
   markdown: {
    smartypants: true
   },
