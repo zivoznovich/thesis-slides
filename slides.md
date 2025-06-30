@@ -7,132 +7,119 @@ Reichman University
 
 ## Motivation
 
-- **Derandomization** is believed to be possible with *only* polynomial slowdown
+- **Derandomization** is believed to be possible with *only* polynomial slow down
 - **Computational Number Theory** features problems where randomized algorithms significantly outperform deterministic ones
 
 ---
 
 ## Integer Factorization Derandomization
-
-- Fundamental to the security of **RSA encryption**
-    - Relies on the hardness of factoring $N = pq$ for large primes $p, q$
-- Best known randomized algorithm:
-  $\exp(\tilde{O}(\sqrt{\log N}))$
-- Best known deterministic algorithms from the 70's:
-  $N^{1/4+o(1)}$
-  <span class="fragment">Strassen and Pollard</span>
-- Recent breakthroughs (2021–22):
-  $N^{1/5+o(1)}$
-  <span class="fragment">Hittmeir and Harvey</span>
+- Fundamental to the security of **RSA encryption**, which relies on the hardness of factoring $N = pq$ for large primes $p, q$
+- Best known randomized algorithm runs in time $\exp(\tilde{O}(\sqrt{\log N}))$
+- Best known deterministic algorithms from the 70's were $N^{1/4+o(1)}$
+> By Strassen and Pollard
+- Recent (2021-22) deterministic breakthroughs achieved $N^{1/5+o(1)}$
+> By Hittmeir and Harvey
 
 ---
 
 ## The Role of Multiplicative Order in Factorization
 
 - **Finding large-order elements** is a natural derandomization problem
-  <span class="fragment">Most elements in $\mathbb{Z}_N^*$ have large order</span>
-  <span class="fragment">But finding one **deterministically** is hard</span>
-
-- Latest deterministic factorization algorithms rely on
-  <span class="fragment">$a \in \mathbb{Z}_N^*$ with $\operatorname{ord}_N(a) \gtrsim N^{1/5}$</span>
+> Most elements in $\mathbb{Z}_N^*$ have large order, but it is unclear how to **find one deterministically**
+- The latest deterministic factorization algorithm relies on finding an element $a \in \mathbb{Z}_N^*$ with a **large multiplicative order**
+> They specifically require finding an element whose order is at least roughly $N^{1/5}$
 
 ---
 
 ## Definitions
 
-**$\mathbb{Z}_N^*$**:
-The multiplicative group of integers modulo $N$:
-$\{ a \in \mathbb{Z} \mid 1 \le a < N,\ \gcd(a, N) = 1 \}$
+### $\mathbb{Z}_N^*$ - Multiplicative Group of Integers Modulo $N$
 
-**Order of $a$ modulo $N$**:
-Smallest $k$ such that $a^k \equiv 1 \mod N$
-$\operatorname{ord}_N(a)$
+- Consists of all integers $a$ such that $1 \le a < N$ and $\gcd(a, N) = 1$
+
+### $\text{ord}_N(a)$ -  Order of an Element $a$ Modulo $N$
+
+- The smallest positive integer $k$ such that $a^k \equiv 1 \pmod{N}$
 
 ---
 
-## Hittmeir's Algorithm (2018)
+## Previous Results - Hittmeir's Algorithm (2018)
 
 - Given composite $N$ and $D \ge N^{2/5}$
 - Runs in time $D^{1/2+o(1)}$
-- Outputs:
-    - $a \in \mathbb{Z}_N^*$ with $\operatorname{ord}_N(a) \ge D$, or
-    - Nontrivial factor of $N$
-- <span class="fragment">A "win-win" subroutine for factorization</span>
-- <span class="fragment">With $D = N^{2/5}$, runtime = $N^{1/5+o(1)}$</span>
+- Outputs
+    - an element $a \in \mathbb{Z}_N^*$ of multiplicative order at least $D$
+    - or a nontrivial factor of $N$
+> As a subroutine in a factorization algorithm this is a "win-win" result
+- When applied with $D=N^{2/5}$, it runs in $N^{1/5+o(1)}$ time, matching other algorithm steps
 
 ---
 
 ## Our Result
 
-- A **deterministic algorithm**, based on Hittmeir’s idea
-- Same runtime: $D^{1/2+o(1)}$
-- Works for **wider range**: $D \ge N^{1/6}$
-- <span class="fragment">Allows finding $a$ with $\operatorname{ord}_N(a) \approx N^{1/5}$</span>
-- <span class="fragment">Now possible in $N^{1/10+o(1)}$ time</span>
+- We give a deterministic algorithm based on Hittmeir's algorithm
+- Runs in time $D^{1/2+o(1)}$
+> Same as previous result
+- It works for a **wider range of parameters** namely $D \ge N^{1/6}$
+> Compared to $D \ge N^{2/5}$
+- This enables finding an element of order $N^{1/5}$ in $N^{1/10+o(1)}$ time for the factorization algorithm
+> Compared to finding an element of order $N^{2/5}$ in $N^{1/5+o(1)}$ time
 
 ---
 
-## Main Algorithm – Simplified
+## Main Algorithm Simplified Overview
 
-For increasing $a = 2, 3, \dots$:
-
-1. If $a^M \equiv 1 \pmod{N}$ → skip
-2. Compute $m = \operatorname{ord}_N(a)$
-3. If $m > D$ → **return $a$**
-4. Else → update $M = \operatorname{lcm}(M, m)$
-
-When $M \ge D$, use
-<span class="fragment">$p \equiv 1 \mod M$</span>
-<span class="fragment">→ Factor $N$</span>
-
----
-
-## Shanks' Order Algorithm
-
-- Given $a \in \mathbb{Z}_N^*$, goal is:
-    - Find $\operatorname{ord}_N(a)$ if $\le D$, or prove it's $> D$
-- **Baby-Step Giant-Step** method:
-    - Precompute $a^j$ for $0 \le j < \sqrt{D}$ (baby steps)
-    - Precompute $a^{-i\sqrt{D}}$ for $0 \le i < \sqrt{D}$ (giant steps)
-    - Search for collision
-
-Runtime: $\tilde{O}(\sqrt{D})$
+- Try $a = 2, 3, \dots$
+    - **While** $a^M\equiv 1 \pmod N$: $a\gets a+1$
+    - Let $m = \mathrm{ord}_N(a)$
+    - **If** $m > D$: **return** $a$
+    - **Else**:
+        - $M \gets \mathrm{lcm}(M, m)$
+- When $M \ge D$
+    - Learn $p\equiv 1 \pmod M$ for divisors of $N$
+    - Use this to factor $N$
 
 ---
 
-## Improving Consecutive Roots Bound
+## Shanks' Method for Order Computation
 
-- Hittmeir bounded:
-  $\#\{a \mid a^M \equiv 1 \mod N\} \le M$
-- We improve to $O(\sqrt{M})$
-  <span class="fragment">Using a result by Forbes, Kayal, Mittal & Saha (2011)</span>
-- <span class="fragment">Faster progress through candidate $a$ values</span>
+- **Goal**: Given $a \in \mathbb{Z}_N^*$
+    - if $\operatorname{ord}_N(a) < D$ calculate it
+    - else, state $\operatorname{ord}_N(a) > D$
+- **Shanks' Baby-Step Giant-Step** algorithm:
+    - Precompute $a^j$ for $0 \le j < \lceil \sqrt{D} \rceil$ (baby steps)
+    - Compute $a^{-i\lceil \sqrt{D} \rceil}$ for $0 \le i < \lceil \sqrt{D} \rceil$ (giant steps)
+    - Search for collision: $a^{i\lceil \sqrt{D} \rceil + j} \equiv 1 \mod N$
+- **Time Complexity**: $\tilde{O}(\sqrt{D})$
 
 ---
 
-## Factoring with Residue Classes
+## Consecutive Roots Bound Improvement
 
-- Based on Harvey–Hittmeir (2022)
-- Goal: Find $r$-th power divisors of $N$
-  <span class="fragment">Given that $p \equiv 1 \mod s$</span>
+- Hittmeir upper bounds the number of consecutive elements $a$ satisfying $a^M\equiv 1 \pmod N$ by $M$
+- Forbes, Kayal, Mittal and Saha (2011) give a bound on the number of common roots of a set of polynomials $S=\{(x+a_i)^\ell-\theta_i\}_{1\leq i\leq k}$
+- We use their lemma to bound $a^M\equiv 1 \pmod N$ by $O(\sqrt{M})$ consecutive roots
 
-Steps:
-1. Construct polynomials $f_i(x)$ vanishing at roots tied to $p$
-2. Build lattice from their coefficients
-3. Use **LLL** basis reduction
-4. Find small-norm polynomial $h(x)$
-5. Solve $h(x) = 0$ over integers → find $p$
+---
+
+## Factoring Given the Residue Class of Divisors
+
+- Based on Harvey–Hittmeir’s algorithm (2022) for finding all $r$'th power divisors
+- Utilizing the $p \equiv 1 \pmod s$ information to reduce the runtime by a factor of $s$
+- Define polynomials $f_i(x)$ that vanishe on a small root related to the divisor
+- Build lattice from $f_i(x)$
+- Apply "Lenstra–Lenstra–Lovász" lattice base reduction
+- Get small-norm polynomial $h(x)$
+- Find small roots over the integers
 
 ---
 
 ## Conclusion
 
-- We present a deterministic algorithm to find elements of large multiplicative order
-- Works for $D \ge N^{1/6}$ (vs $N^{2/5}$ in prior work)
-- <span class="fragment">Enables faster subroutine in deterministic integer factorization</span>
+- We provide a deterministic algorithm for finding elements of large multiplicative order, with improved parameter range
+- This contributes to improving the efficiency of part of the current fastest deterministic integer factorization algorithm
 
 ---
 
-# Thank you 🙏
-## Special thanks to **Ben Lee Volk**
-**Questions?**
+# Thanks **Ben Lee Volk** 🙏
+# Questions?
