@@ -1,6 +1,7 @@
 <!-- slide -->
 # On Deterministically Finding an Element of High Order Modulo a Composite
 **Ziv Oznovich** and **Ben Lee Volk**
+
 Reichman University
 
 ---
