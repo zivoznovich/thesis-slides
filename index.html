@@ -41,13 +41,15 @@
 				<section>
 					<div class="slide-title">The Role of Multiplicative Order in Factorization</div>
 					<ul>
-						<li class="fragment"><strong>Finding large-order elements</strong> is a natural derandomization problem<blockquote class="quote">
-							<p>Most elements in $\mathbb{Z}_N^*$ have large order, but it is unclear how to <b>find one deterministically</b></p>
-						</blockquote>
+						<li class="fragment"><strong>Finding large-order elements</strong> is a natural derandomization problem
+							<blockquote class="quote">
+								Most elements in $\mathbb{Z}_N^*$ have large order, but it is unclear how to <b>find one deterministically</b>
+							</blockquote>
 						</li>
-						<li class="fragment">The latest deterministic factorization algorithm relies on finding an element $a \in \mathbb{Z}_N^*$ with a <b>large multiplicative order</b><blockquote class="quote">
-							<p>They specifically require finding an element whose order is at least roughly $N^{1/5}$</p>
-						</blockquote>
+						<li class="fragment">The latest deterministic factorization algorithm relies on finding an element $a \in \mathbb{Z}_N^*$ with a <b>large multiplicative order</b>
+							<blockquote class="quote">
+								They specifically require finding an element whose order is at least roughly $N^{1/5}$
+							</blockquote>
 						</li>
 					</ul>
 				</section>
@@ -69,14 +71,14 @@
 					<ul>
 						<li class="fragment">Given composite $N$ and $D \ge N^{2/5}$</li>
 						<li class="fragment">Runs in time $D^{1/2+o(1)}$</li>
-						<li class="fragment">Outputs<ul>
-							<li class="fragment">an element $a \in \mathbb{Z}_N^*$ of multiplicative order at least $D$</li>
-							<li class="fragment">or a nontrivial factor of $N$<blockquote class="quote">
-								<p>As a subroutine in a factorization algorithm this is a &quot;win-win&quot; result</p>
-							</blockquote>
-							</li>
-						</ul>
-						</li>
+						<li class="fragment">Outputs
+							<ul>
+								<li class="fragment">an element $a \in \mathbb{Z}_N^*$ of multiplicative order at least $D$</li>
+								<li class="fragment">or a nontrivial factor of $N$</li>
+							</ul>
+						<blockquote class="quote fragment">
+							As a subroutine in a factorization algorithm this is a &quot;win-win&quot; result
+						</blockquote>
 						<li class="fragment">When applied with $D=N^{2/5}$, it runs in $N^{1/5+o(1)}$ time, matching other algorithm steps</li>
 					</ul>
 				</section>
@@ -84,17 +86,20 @@
 					<div class="slide-title">Our Result</div>
 					<ul>
 						<li class="fragment">We give a deterministic algorithm based on Hittmeir&#39;s algorithm</li>
-						<li class="fragment">Runs in time $D^{1/2+o(1)}$<blockquote class="quote">
-							<p>Same as previous result</p>
-						</blockquote>
+						<li class="fragment">Runs in time $D^{1/2+o(1)}$
+							<blockquote class="quote">
+								Same as previous result
+							</blockquote>
 						</li>
-						<li class="fragment">It works for a <strong>wider range of parameters</strong> namely $D \ge N^{1/6}$<blockquote class="quote">
-							<p>Compared to $D \ge N^{2/5}$</p>
-						</blockquote>
+						<li class="fragment">It works for a <strong>wider range of parameters</strong> namely $D \ge N^{1/6}$
+							<blockquote class="quote">
+								Compared to $D \ge N^{2/5}$
+							</blockquote>
 						</li>
-						<li class="fragment">This enables finding an element of order $N^{1/5}$ in $N^{1/10+o(1)}$ time for the factorization algorithm<blockquote class="quote">
-							<p>Compared to finding an element of order $N^{2/5}$ in $N^{1/5+o(1)}$ time</p>
-						</blockquote>
+						<li class="fragment">This enables finding an element of order $N^{1/5}$ in $N^{1/10+o(1)}$ time for the factorization algorithm
+							<blockquote class="quote">
+								Compared to finding an element of order $N^{2/5}$ in $N^{1/5+o(1)}$ time
+							</blockquote>
 						</li>
 					</ul>
 				</section>
