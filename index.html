@@ -6,55 +6,54 @@
 		 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		 <link rel="stylesheet" href="dist/reveal.css" />
 		 <link rel="stylesheet" href="dist/theme/white.css" id="theme" />
-		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<div class="main-title">
+					<h1>
 						On Deterministically Finding an Element of High Order Modulo a Composite
-					</div>
+					</h1>
 					<p><strong>Ziv Oznovich</strong> and <strong>Ben Lee Volk</strong></p>
 					<p>Reichman University</p>
 				</section>
 				<section>
-					<div class="slide-title">Motivation</div>
+					<h1>Motivation</h1>
 					<ul>
 						<li class="fragment"><strong>Derandomization</strong> is believed to be possible with only polynomial slowdown</li>
 						<li class="fragment"><strong>Computational Number Theory</strong> features problems where randomized algorithms significantly outperform deterministic ones</li>
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">Integer Factorization Derandomization</div>
+					<h1>Integer Factorization Derandomization</h1>
 					<ul>
 						<li class="fragment">Fundamental to the security of <strong>RSA encryption</strong>, which relies on the hardness of factoring $N = pq$ for large primes $p, q$
 						<li class="fragment">Best known randomized algorithm runs in time $\exp(\tilde{O}(\sqrt{\log N}))$
 						<li class="fragment">Best known deterministic algorithms from the 70&#39;s were $N^{1/4+o(1)}$
-							<blockquote class="quote">By Strassen and Pollard</blockquote>
+							<blockquote>By Strassen and Pollard</blockquote>
 						</li>
 						<li class="fragment">Recent (2021-22) deterministic breakthroughs achieved $N^{1/5+o(1)}$
-							<blockquote class="quote">By Hittmeir and Harvey</blockquote>
+							<blockquote>By Hittmeir and Harvey</blockquote>
 						</li>
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">The Role of Multiplicative Order in Factorization</div>
+					<h1>The Role of Multiplicative Order in Factorization</h1>
 					<ul>
 						<li class="fragment"><strong>Finding large-order elements</strong> is a natural derandomization problem
-							<blockquote class="quote">
+							<blockquote>
 								Most elements in $\mathbb{Z}_N^*$ have large order, but it is unclear how to <b>find one deterministically</b>
 							</blockquote>
 						</li>
 						<li class="fragment">The latest deterministic factorization algorithm relies on finding an element $a \in \mathbb{Z}_N^*$ with a <b>large multiplicative order</b>
-							<blockquote class="quote">
+							<blockquote>
 								They specifically require finding an element whose order is at least roughly $N^{1/5}$
 							</blockquote>
 						</li>
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">Definitions</div>
+					<h1>Definitions</h1>
 					<ul>
 						<li class="fragment">$\mathbb{Z}_N^*$ - Multiplicative Group of Integers Modulo $N$</li>
 						<ul>
@@ -67,7 +66,7 @@
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">Previous Results - Hittmeir's Algorithm (2018)</div>
+					<h1>Previous Results - Hittmeir's Algorithm (2018)</h1>
 					<ul>
 						<li class="fragment">Given composite $N$ and $D \ge N^{2/5}$</li>
 						<li class="fragment">Runs in time $D^{1/2+o(1)}$</li>
@@ -83,28 +82,28 @@
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">Our Result</div>
+					<h1>Our Result</h1>
 					<ul>
 						<li class="fragment">We give a deterministic algorithm based on Hittmeir&#39;s algorithm</li>
 						<li class="fragment">Runs in time $D^{1/2+o(1)}$
-							<blockquote class="quote">
+							<blockquote>
 								Same as previous result
 							</blockquote>
 						</li>
 						<li class="fragment">It works for a <strong>wider range of parameters</strong> namely $D \ge N^{1/6}$
-							<blockquote class="quote">
+							<blockquote>
 								Compared to $D \ge N^{2/5}$
 							</blockquote>
 						</li>
 						<li class="fragment">This enables finding an element of order $N^{1/5}$ in $N^{1/10+o(1)}$ time for the factorization algorithm
-							<blockquote class="quote">
+							<blockquote>
 								Compared to finding an element of order $N^{2/5}$ in $N^{1/5+o(1)}$ time
 							</blockquote>
 						</li>
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">Main Algorithm Simplified Overview</div>
+					<h1>Main Algorithm Simplified Overview</h1>
 					<ul>
 						<li class="fragment">Try $a = 2, 3, \dots$
 							<ul>
@@ -120,7 +119,7 @@
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">Shanks&#39; Method for Order Computation</div>
+					<h1>Shanks&#39; Method for Order Computation</h1>
 					<ul>
 						<li class="fragment"><strong>Goal</strong>: Given $a \in \mathbb{Z}_N^*$<ul>
 							<li class="fragment">if $\operatorname{ord}_N(a) &lt; D$ calculate it</li>
@@ -137,7 +136,7 @@
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">Factoring Given the Residue Class of Divisors</div>
+					<h1>Factoring Given the Residue Class of Divisors</h1>
 					<ul>
 						<li class="fragment">Based on Harvey–Hittmeir’s algorithm (2022) for finding all $r$&#39;th power divisors</li>
 						<li class="fragment">Utilizing the $p \equiv 1 \pmod s$ information to reduce the runtime by a factor of $s$</li>
@@ -149,15 +148,15 @@
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">Conclusion</div>
+					<h1>Conclusion</h1>
 					<ul>
 						<li class="fragment">We provide a deterministic algorithm for finding elements of large multiplicative order, with improved parameter range</li>
 						<li class="fragment">This contributes to improving the efficiency of part of the current fastest deterministic integer factorization algorithm</li>
 					</ul>
 				</section>
 				<section>
-					<div class="slide-title">Thanks <strong>Ben Lee Volk</strong> 🙏</div>
-					<div class="slide-title">Questions?</div>
+					<h1>Thanks <strong>Ben Lee Volk</strong> 🙏</h1>
+					<h1>Questions?</h1>
 				</section>
 			</div>
 		</div>
