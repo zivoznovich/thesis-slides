@@ -1,58 +1,44 @@
 <!doctype html>
 <html lang="en">
-<head>
- <meta charset="utf-8" />
- <title>Reveal.js Presentation</title>
- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<head>
+		 <meta charset="utf-8" />
+		 <title>Reveal.js Presentation</title>
+		 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css" />
+		 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/simple.css" id="theme" />
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown="slides.md"
+					data-separator="^\n---\n"
+					data-separator-vertical="^\n--\n"
+					data-separator-notes="^Note:"
+					data-charset="utf-8">
+				</section>
+			</div>
+		</div>
 
- <!-- Reveal.js core CSS -->
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.css" />
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/black.css" id="theme" />
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
 
- <!-- Markdown plugin CSS -->
- <style>
-  /* Optional: fix markdown styling */
-  section.markdown section {
-   margin: 0;
-  }
- </style>
-</head>
-<body>
-<div class="reveal">
- <div class="slides">
-		<!-- This will load your slides.md file -->
-  <section data-markdown="slides.md"
-     data-separator="^\n---\n"
-     data-separator-vertical="^\n--\n"
-     data-separator-notes="^Note:"
-     data-charset="utf-8">
-  </section>
- </div>
-</div>
-
-<!-- Reveal.js scripts -->
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/markdown/markdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/notes/notes.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/plugin/highlight/highlight.js"></script>
-
-<!-- MathJax script -->
-<script src="plugin/math/math.js"></script>
-
-<script>
- Reveal.initialize({
-  hash: true,
-  plugins: [ RevealMarkdown, RevealNotes, RevealHighlight, RevealMath.KaTeX ],
-  markdown: {
-   smartypants: true
-  },
-  mathjax3: {
-   tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']],
-    displayMath: [['$$', '$$'], ['\\[', '\\]']]
-   }
-  }
- });
-</script>
-</body>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealNotes, RevealHighlight, RevealMath.KaTeX ],
+				markdown: {
+					smartypants: true
+				},
+				mathjax3: {
+					tex: {
+						inlineMath: [['$', '$'], ['\\(', '\\)']],
+						displayMath: [['$$', '$$'], ['\\[', '\\]']]
+					}
+				}
+			});
+		</script>
+	</body>
 </html>
