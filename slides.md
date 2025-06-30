@@ -8,10 +8,8 @@ Reichman University
 
 ## Motivation
 
-- **Derandomization** is believed to be possible with *only* polynomial slow down
-<span class="fragment">
-- **Computational Number Theory** features problems where randomized algorithms significantly outperform deterministic ones
-</span>
+- **Derandomization** is believed to be possible with *only* polynomial slowdown
+- <span class="fragment">**CComputational Number Theory** features problems where randomized algorithms significantly outperform deterministic ones</span>
 
 ---
 
