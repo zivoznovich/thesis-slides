@@ -18,22 +18,45 @@
 					<p>Reichman University</p>
 				</section>
 				<section>
-					<h1>Motivation</h1>
+					<h1>
+						Integer Factorization
+					</h1>
 					<ul>
-						<li class="fragment"><strong>Derandomization</strong> is believed to be possible with only polynomial slowdown</li>
-						<li class="fragment"><strong>Computational Number Theory</strong> features problems where randomized algorithms significantly outperform deterministic ones</li>
+						<li class="fragment">
+							Given a positive integer \( N \), find integers $p_i, q_j$ such that
+							<ul>
+								<li class="fragment">\( N = p_1^{q_1} \cdot p_2^{q_2} \cdot \dots \cdot p_k^{q_k} \)</li>
+								<li>$p_i$'s are prime</li>
+							</ul>
+						</li>
+						<li class="fragment">Note that the input size is \( O(\log N) \)</li>
 					</ul>
 				</section>
 				<section>
-					<h1>Integer Factorization Derandomization</h1>
+					<h1>Motivation</h1>
 					<ul>
-						<li class="fragment">Fundamental to the security of <strong>RSA encryption</strong>, which relies on the hardness of factoring $N = pq$ for large primes $p, q$
-						<li class="fragment">Best known randomized algorithm runs in time $\exp(\tilde{O}(\sqrt{\log N}))$
-						<li class="fragment">Best known deterministic algorithms from the 70&#39;s were $N^{1/4+o(1)}$
-							<blockquote>By Strassen and Pollard</blockquote>
-						</li>
-						<li class="fragment">Recent (2021-22) deterministic breakthroughs achieved $N^{1/5+o(1)}$
-							<blockquote>By Hittmeir and Harvey</blockquote>
+						<li class="fragment">Integer factorization is a fundamental problem in computational number theory</li>
+						<li class="fragment">RSA encryption relies on the hardness of factoring $N = pq$</li>
+						<li class="fragment">
+							Derandomization is believed to be possible with only polynomial slowdown
+							<br><br>
+							<table class="fragment">
+								<tr>
+									<th>Randomized algorithms</th>
+									<th >Deterministic algorithms</th>
+								</tr>
+								<tr>
+									<td class="fragment">$\exp(\tilde{O}(\sqrt{\log N}))$</td>
+									<td class="fragment">$N^{1/4+o(1)}$ (70's, Strassen and Pollard)</td>
+								</tr>
+								<tr class="fragment">
+									<td></td>
+									<td>$N^{1/5+o(1)}$ (2021-22, Hittmeir and Harvey)</td>
+								</tr>
+							</table>
+							<ul>
+								<li class="fragment"><em>"Deterministic algorithms" = Deterministic, rigorously proven algorithms</em></li>
+							</ul>
 						</li>
 					</ul>
 				</section>
