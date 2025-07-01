@@ -64,14 +64,15 @@
 					<h1>The Role of Multiplicative Order in Factorization</h1>
 					<ul>
 						<li class="fragment"><strong>Finding large-order elements</strong> is a natural derandomization problem
-							<blockquote>
-								Most elements in $\mathbb{Z}_N^*$ have large order, but it is unclear how to <b>find one deterministically</b>
-							</blockquote>
+							<ul>
+								<li class="fragment">Most elements in $\mathbb{Z}_N^*$ have large order, but it is unclear how to <b>find one deterministically</b></li>
+							</ul>
 						</li>
-						<li class="fragment">The latest deterministic factorization algorithm relies on finding an element $a \in \mathbb{Z}_N^*$ with a <b>large multiplicative order</b>
-							<blockquote>
-								They specifically require finding an element whose order is at least roughly $N^{1/5}$
-							</blockquote>
+						<li class="fragment">Latest factorization algorithm relies on finding $a \in \mathbb{Z}_N^*$ with a <b>large multiplicative order</b>
+							<ul>
+								<li class="fragment">They specifically require finding an element whose order is at least roughly $N^{1/5}$</li>
+								<li class="fragment">Such an element doesn't necessarily exist</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -81,18 +82,14 @@
 						<li class="fragment">
 							$\mathbb{Z}_N^*$ - Multiplicative Group of Integers Modulo $N$
 							<ul>
-								<li class="fragment">
-									Consists of all integers $a$ such that $1 \le a &lt; N$ and $\gcd(a, N) = 1$
-								</li>
+								<li class="fragment">Consists of all integers $a$ such that $1 \le a &lt; N$ and $\gcd(a, N) = 1$</li>
 							</ul>
 						</li>
 
 						<li class="fragment">
 							$\text{ord}_N(a)$ - Order of an Element $a$ Modulo $N$
 							<ul>
-								<li class="fragment">
-									The smallest positive integer $k$ such that $a^k \equiv 1 \pmod{N}$
-								</li>
+								<li class="fragment">The smallest positive integer $k$ such that $a^k \equiv 1 \pmod{N}$</li>
 							</ul>
 						</li>
 					</ul>
