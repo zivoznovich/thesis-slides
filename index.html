@@ -100,35 +100,19 @@
 				<section>
 					<h1>Previous Results - Hittmeir's Algorithm (2018)</h1>
 					<ul>
-						<li class="fragment">
-							Given composite \(N\) and \(D \ge N^{2/5}\)
-						</li>
-
-						<li class="fragment">
-							Runs in time \(D^{1/2+o(1)}\)
-						</li>
-
+						<li class="fragment">Given composite \(N\) and \(D \ge N^{2/5}\)</li>
+						<li class="fragment">Runs in time \(D^{1/2+o(1)}\)</li>
 						<li class="fragment">
 							Outputs
 							<ul>
-								<li class="fragment">
-									an element \(a \in \mathbb{Z}_N^{\*}\) of multiplicative order at least \(D\)
-								</li>
-								<li class="fragment">
-									or a non‑trivial factor of \(N\)
-								</li>
+								<li class="fragment">an element $a \in \mathbb{Z}_N^*$ of multiplicative order at least \(D\)</li>
+								<li class="fragment">or a non‑trivial factor of \(N\)</li>
 							</ul>
-
-							<blockquote class="quote fragment">
-								As a subroutine in a factorization algorithm this is a “win‑win” result
-							</blockquote>
+							<blockquote class="quote fragment">As a subroutine in a factorization algorithm this is a “win‑win” result</blockquote>
 						</li>
-
-						<li class="fragment">
-							When applied with \(D=N^{2/5}\), it runs in \(N^{1/5+o(1)}\) time, matching other algorithm steps
-						</li>
+						<li class="fragment">Large-order elements may not always exist</li>
+						<li class="fragment">When applied with \(D=N^{2/5}\), it runs in \(N^{1/5+o(1)}\) time, matching other algorithm steps</li>
 					</ul>
-
 				</section>
 				<section>
 					<h1>Our Result</h1>
@@ -178,18 +162,17 @@
 
 				</section>
 				<section>
-					<h1>Shanks&#39; Method for Order Computation</h1>
+					<h1>Shanks' Method for Order Computation</h1>
 					<ul>
-						<li class="fragment"><strong>Goal</strong>: Given $a \in \mathbb{Z}_N^*$<ul>
-							<li class="fragment">if $\operatorname{ord}_N(a) &lt; D$ calculate it</li>
-							<li class="fragment">else, state $\operatorname{ord}_N(a) &gt; D$</li>
-						</ul>
-						</li>
-						<li class="fragment"><strong>Shanks&#39; Baby-Step Giant-Step</strong> algorithm:<ul>
-							<li class="fragment">Precompute $a^j$ for $0 \le j &lt; \lceil \sqrt{D} \rceil$ (baby steps)</li>
-							<li class="fragment">Compute $a^{-i\lceil \sqrt{D} \rceil}$ for $0 \le i &lt; \lceil \sqrt{D} \rceil$ (giant steps)</li>
-							<li class="fragment">Search for collision: $a^{i\lceil \sqrt{D} \rceil + j} \equiv 1 \mod N$</li>
-						</ul>
+						<li class="fragment"><b>Goal:</b> If $\operatorname{ord}_N(a) < D$ calculate it, otherwise, state that it is larger than $D$</li>
+						<li class="fragment">
+							<strong>Shanks' Baby-Step Giant-Step</strong> algorithm:
+							<ul>
+								<li class="fragment" id="shanks-switch">$a^k\equiv 1 \pmod N, k \leq D$</li>
+								<li class="fragment">Write $k=i\sqrt D + j, 0\leq i,j \leq \sqrt D$</li>
+								<li class="fragment" switch-text="true" target-id="shanks-switch" target-text="$a^{i\sqrt D + j}\equiv 1 \pmod N$"></li>
+								<li class="fragment" switch-text="true" target-id="shanks-switch" target-text="$a^{i\sqrt D}\equiv a^{-j} \pmod N$"></li>
+							</ul>
 						</li>
 						<li class="fragment"><strong>Time Complexity</strong>: $\tilde{O}(\sqrt{D})$</li>
 					</ul>
@@ -244,6 +227,30 @@
 				controls: true,
 				responsive: true,
 			});
+
+			Reveal.on('fragmentshown', (event) => {
+				if (event.fragment.getAttribute('switch-text') === 'true') {
+					event.fragment.style = 'display: none;';
+					const targetId = event.fragment.getAttribute('target-id');
+					const targetText = event.fragment.getAttribute('target-text');
+					const targetElement = document.getElementById(targetId);
+
+					if (targetElement) {
+						targetElement.textContent = targetText;
+					}
+
+					if (typeof renderMathInElement === 'function') {
+						renderMathInElement(targetElement, {
+							delimiters: [
+								{left: "$$", right: "$$", display: true},
+								{left: "$", right: "$", display: false},
+								{left: "\\[", right: "\\]", display: true},
+								{left: "\\(", right: "\\)", display: false}
+							]
+						});
+					}
+				}
+			})
 		</script>
 	</body>
 </html>
