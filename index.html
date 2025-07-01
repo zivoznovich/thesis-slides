@@ -55,31 +55,58 @@
 				<section>
 					<h1>Definitions</h1>
 					<ul>
-						<li class="fragment">$\mathbb{Z}_N^*$ - Multiplicative Group of Integers Modulo $N$</li>
-						<ul>
-							<li class="fragment">Consists of all integers $a$ such that $1 \le a &lt; N$ and $\gcd(a, N) = 1$</li>
-						</ul>
-						<li class="fragment">$\text{ord}_N(a)$ -  Order of an Element $a$ Modulo $N$</li>
-						<ul>
-							<li class="fragment">The smallest positive integer $k$ such that $a^k \equiv 1 \pmod{N}$</li>
-						</ul>
+						<li class="fragment">
+							$\mathbb{Z}_N^*$ - Multiplicative Group of Integers Modulo $N$
+							<ul>
+								<li class="fragment">
+									Consists of all integers $a$ such that $1 \le a &lt; N$ and $\gcd(a, N) = 1$
+								</li>
+							</ul>
+						</li>
+
+						<li class="fragment">
+							$\text{ord}_N(a)$ - Order of an Element $a$ Modulo $N$
+							<ul>
+								<li class="fragment">
+									The smallest positive integer $k$ such that $a^k \equiv 1 \pmod{N}$
+								</li>
+							</ul>
+						</li>
 					</ul>
+
 				</section>
 				<section>
 					<h1>Previous Results - Hittmeir's Algorithm (2018)</h1>
 					<ul>
-						<li class="fragment">Given composite $N$ and $D \ge N^{2/5}$</li>
-						<li class="fragment">Runs in time $D^{1/2+o(1)}$</li>
-						<li class="fragment">Outputs
+						<li class="fragment">
+							Given composite \(N\) and \(D \ge N^{2/5}\)
+						</li>
+
+						<li class="fragment">
+							Runs in time \(D^{1/2+o(1)}\)
+						</li>
+
+						<li class="fragment">
+							Outputs
 							<ul>
-								<li class="fragment">an element $a \in \mathbb{Z}_N^*$ of multiplicative order at least $D$</li>
-								<li class="fragment">or a nontrivial factor of $N$</li>
+								<li class="fragment">
+									an element \(a \in \mathbb{Z}_N^{\*}\) of multiplicative order at least \(D\)
+								</li>
+								<li class="fragment">
+									or a non‑trivial factor of \(N\)
+								</li>
 							</ul>
-						<blockquote class="quote fragment">
-							As a subroutine in a factorization algorithm this is a &quot;win-win&quot; result
-						</blockquote>
-						<li class="fragment">When applied with $D=N^{2/5}$, it runs in $N^{1/5+o(1)}$ time, matching other algorithm steps</li>
+
+							<blockquote class="quote fragment">
+								As a subroutine in a factorization algorithm this is a “win‑win” result
+							</blockquote>
+						</li>
+
+						<li class="fragment">
+							When applied with \(D=N^{2/5}\), it runs in \(N^{1/5+o(1)}\) time, matching other algorithm steps
+						</li>
 					</ul>
+
 				</section>
 				<section>
 					<h1>Our Result</h1>
@@ -105,18 +132,28 @@
 				<section>
 					<h1>Main Algorithm Simplified Overview</h1>
 					<ul>
-						<li class="fragment">Try $a = 2, 3, \dots$
+						<li class="fragment">
+							Try \(a = 2, 3, \dots\)
 							<ul>
-								<li class="fragment"><b>If</b> $\mathrm{ord}_N(a)>D$ <b>return</b> $a$</li>
-								<li class="fragment">$M \gets \mathrm{lcm}(M, \mathrm{ord}_N(a))$</li>
-								<li class="fragment"><b>If</b> $M \ge D$
+								<li class="fragment">
+									<b>If</b> \(\mathrm{ord}_N(a) > D\) <b>return</b> \(a\)
+								</li>
+								<li class="fragment">
+									\(M \gets \mathrm{lcm}(M, \mathrm{ord}_N(a))\)
+								</li>
+								<li class="fragment">
+									<b>If</b> \(M \ge D\)
 									<ul>
-										<li class="fragment">Deduce that all prime divisors of $N$ are $1\pmod M$
-											</br> and use this to factor $N$</li>
+										<li class="fragment">
+											Deduce that all prime divisors of \(N\) are \(1 \pmod M\)<br>
+											and use this to factor \(N\)
+										</li>
 									</ul>
 								</li>
 							</ul>
+						</li>
 					</ul>
+
 				</section>
 				<section>
 					<h1>Shanks&#39; Method for Order Computation</h1>

@@ -16,8 +16,8 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   --r-main-font: Source Sans Pro, Helvetica, sans-serif;
   --r-main-font-size: 2.2vw;
   --r-main-color: #222;
-  --r-block-margin: 20px;
-  --r-heading-margin: 0 0 20px 0;
+  --r-block-margin: 0.8vw;
+  --r-heading-margin: 0 0 3.0vw 0;
   --r-heading-font: Source Sans Pro, Helvetica, sans-serif;
   --r-heading-color: #222;
   --r-heading-line-height: 1.2;
@@ -149,7 +149,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal ul {
   display: inline-block;
   text-align: left;
-  margin: 0 0 0 1em;
+  margin: 0;
 }
 
 .reveal ol {
@@ -173,15 +173,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal ol ol,
 .reveal ol ul {
   display: block;
-  margin-left: 40px;
 }
 
 .reveal dt {
   font-weight: bold;
-}
-
-.reveal dd {
-  margin-left: 40px;
 }
 
 .reveal blockquote {
@@ -189,7 +184,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   position: relative;
   width: 70%;
   margin: var(--r-block-margin) auto;
-  padding: 5px;
+  padding: 0.2vw;
   font-style: italic;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
@@ -357,3 +352,6 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   }
 }
 
+li {
+  margin: 0 0 1.0vw 0;
+}
