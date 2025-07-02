@@ -169,9 +169,11 @@
 							<strong>Shanks' Baby-Step Giant-Step</strong> algorithm:
 							<ul>
 								<li class="fragment" id="shanks-switch">$a^k\equiv 1 \pmod N, k \leq D$</li>
-								<li class="fragment">Write $k=i\sqrt D + j, 0\leq i,j \leq \sqrt D$</li>
-								<li class="fragment" switch-text="true" target-id="shanks-switch" target-text-forward="$a^{i\sqrt D + j}\equiv 1 \pmod N$" target-text-backward="Write $k=i\sqrt D + j, 0\leq i,j \leq \sqrt D$"></li>
-								<li class="fragment" switch-text="true" target-id="shanks-switch" target-text-forward="$a^{i\sqrt D}\equiv a^{-j} \pmod N$" target-text-backward="$a^{i\sqrt D + j}\equiv 1 \pmod N$"></li>
+								<li class="fragment">
+									Write $k=i\sqrt D + j, 0\leq i,j \leq \sqrt D$
+									<span class="fragment" switch-text="true" target-id="shanks-switch" target-text-forward="$a^{i\sqrt D + j}\equiv 1 \pmod N$" target-text-backward="$a^k\equiv 1 \pmod N, k \leq D$"></span>
+									<span class="fragment" switch-text="true" target-id="shanks-switch" target-text-forward="$a^{i\sqrt D}\equiv a^{-j} \pmod N$" target-text-backward="$a^{i\sqrt D + j}\equiv 1 \pmod N$"></span>
+								</li>
 							</ul>
 						</li>
 						<li class="fragment"><strong>Time Complexity</strong>: $\tilde{O}(\sqrt{D})$</li>
@@ -239,28 +241,31 @@
 				});
 			}
 
-			Reveal.on('fragmenthidden', (event) => {
+			function switchText(event, isForward) {
 				if (event.fragment.getAttribute('switch-text') === 'true') {
-					event.fragment.style = 'display: none;';
+					event.fragment.style.display = 'none';
+
 					const targetId = event.fragment.getAttribute('target-id');
-					const targetText = event.fragment.getAttribute('target-text-backward');
+					const targetText = isForward ? event.fragment.getAttribute('target-text-forward') : event.fragment.getAttribute('target-text-backward');
 					const targetElement = document.getElementById(targetId);
 
-					targetElement.textContent = targetText;
-					math(targetElement);
+					targetElement.style.transition = 'opacity 0.5s ease-out';
+					targetElement.style.opacity = '0';
+
+					setTimeout(() => {
+						targetElement.textContent = targetText;
+						math(targetElement);
+						targetElement.style.opacity = '1';
+					}, 500);
 				}
+			}
+
+			Reveal.on('fragmenthidden', (event) => {
+				switchText(event, false);
 			});
 
 			Reveal.on('fragmentshown', (event) => {
-				if (event.fragment.getAttribute('switch-text') === 'true') {
-					event.fragment.style = 'display: none;';
-					const targetId = event.fragment.getAttribute('target-id');
-					const targetText = event.fragment.getAttribute('target-text-forward');
-					const targetElement = document.getElementById(targetId);
-
-					targetElement.textContent = targetText;
-					math(targetElement);
-				}
+				switchText(event, true);
 			})
 		</script>
 	</body>
