@@ -170,8 +170,8 @@
 							<ul>
 								<li class="fragment" id="shanks-switch">$a^k\equiv 1 \pmod N, k \leq D$</li>
 								<li class="fragment">Write $k=i\sqrt D + j, 0\leq i,j \leq \sqrt D$</li>
-								<li class="fragment" switch-text="true" target-id="shanks-switch" target-text="$a^{i\sqrt D + j}\equiv 1 \pmod N$"></li>
-								<li class="fragment" switch-text="true" target-id="shanks-switch" target-text="$a^{i\sqrt D}\equiv a^{-j} \pmod N$"></li>
+								<li class="fragment" switch-text="true" target-id="shanks-switch" target-text-forward="$a^{i\sqrt D + j}\equiv 1 \pmod N$" target-text-backward="Write $k=i\sqrt D + j, 0\leq i,j \leq \sqrt D$"></li>
+								<li class="fragment" switch-text="true" target-id="shanks-switch" target-text-forward="$a^{i\sqrt D}\equiv a^{-j} \pmod N$" target-text-backward="$a^{i\sqrt D + j}\equiv 1 \pmod N$"></li>
 							</ul>
 						</li>
 						<li class="fragment"><strong>Time Complexity</strong>: $\tilde{O}(\sqrt{D})$</li>
@@ -228,27 +228,38 @@
 				responsive: true,
 			});
 
+			function math(targetElement) {
+				renderMathInElement(targetElement, {
+					delimiters: [
+						{left: "$$", right: "$$", display: true},
+						{left: "$", right: "$", display: false},
+						{left: "\\[", right: "\\]", display: true},
+						{left: "\\(", right: "\\)", display: false}
+					]
+				});
+			}
+
+			Reveal.on('fragmenthidden', (event) => {
+				if (event.fragment.getAttribute('switch-text') === 'true') {
+					event.fragment.style = 'display: none;';
+					const targetId = event.fragment.getAttribute('target-id');
+					const targetText = event.fragment.getAttribute('target-text-backward');
+					const targetElement = document.getElementById(targetId);
+
+					targetElement.textContent = targetText;
+					math(targetElement);
+				}
+			});
+
 			Reveal.on('fragmentshown', (event) => {
 				if (event.fragment.getAttribute('switch-text') === 'true') {
 					event.fragment.style = 'display: none;';
 					const targetId = event.fragment.getAttribute('target-id');
-					const targetText = event.fragment.getAttribute('target-text');
+					const targetText = event.fragment.getAttribute('target-text-forward');
 					const targetElement = document.getElementById(targetId);
 
-					if (targetElement) {
-						targetElement.textContent = targetText;
-					}
-
-					if (typeof renderMathInElement === 'function') {
-						renderMathInElement(targetElement, {
-							delimiters: [
-								{left: "$$", right: "$$", display: true},
-								{left: "$", right: "$", display: false},
-								{left: "\\[", right: "\\]", display: true},
-								{left: "\\(", right: "\\)", display: false}
-							]
-						});
-					}
+					targetElement.textContent = targetText;
+					math(targetElement);
 				}
 			})
 		</script>
