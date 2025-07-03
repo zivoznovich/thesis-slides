@@ -12,7 +12,7 @@
 			<div class="slides">
 				<section>
 					<h1>
-						On Deterministically Finding an Element of High Order Modulo a Composite
+						On Deterministically Finding an Element<br>of High Order Modulo a Composite
 					</h1>
 					<p><strong>Ziv Oznovich</strong> and <strong>Ben Lee Volk</strong></p>
 					<p>Reichman University</p>
@@ -46,12 +46,12 @@
 									<th >Deterministic algorithms</th>
 								</tr>
 								<tr>
-									<td class="fragment">$\exp(\tilde{O}(\sqrt{\log N}))$</td>
-									<td class="fragment">$N^{1/4+o(1)}$ (70's, Strassen and Pollard)</td>
+									<td>$\exp(\tilde{O}(\sqrt{\log N}))$</td>
+									<td>$N^{1/4+o(1)}$ (70's, Strassen and Pollard)</td>
 								</tr>
 								<tr>
 									<td class="fragment">🙂</td>
-									<td class="fragment">$N^{1/5+o(1)}$ (2021-22, Hittmeir and Harvey)</td>
+									<td>$N^{1/5+o(1)}$ (2021-22, Hittmeir and Harvey)</td>
 								</tr>
 							</table>
 							<li class="fragment"><em>"Deterministic algorithms" = Deterministic, rigorously proven algorithms</em></li>
@@ -96,7 +96,7 @@
 					</ul>
 				</section>
 				<section>
-					<h1>Previous Results - Hittmeir's Algorithm (2018)</h1>
+					<h1>Hittmeir's Algorithm (2018)</h1>
 					<ul>
 						<li class="fragment">Given composite \(N\) and \(D \ge N^{2/5}\)</li>
 						<li class="fragment">Runs in time \(D^{1/2+o(1)}\)</li>
@@ -105,8 +105,8 @@
 							<ul>
 								<li>an element $a \in \mathbb{Z}_N^*$ of multiplicative order at least \(D\)</li>
 								<li class="fragment">or a non‑trivial factor of \(N\)</li>
+								<li class="fragment">As a subroutine in a factorization algorithm this is a “win‑win” result</li>
 							</ul>
-							<blockquote class="quote fragment">As a subroutine in a factorization algorithm this is a “win‑win” result</blockquote>
 						</li>
 						<li class="fragment">Large-order elements may not always exist</li>
 						<li class="fragment">When applied with \(D=N^{2/5}\), it runs in \(N^{1/5+o(1)}\) time, matching other algorithm steps</li>
@@ -117,19 +117,19 @@
 					<ul>
 						<li class="fragment">We give a deterministic algorithm based on Hittmeir&#39;s algorithm</li>
 						<li class="fragment">Runs in time $D^{1/2+o(1)}$
-							<blockquote>
-								Same as previous result
-							</blockquote>
+							<ul>
+								<li>Same as previous result</li>
+							</ul>
 						</li>
 						<li class="fragment">It works for a <strong>wider range of parameters</strong> namely $D \ge N^{1/6}$
-							<blockquote>
-								Compared to $D \ge N^{2/5}$
-							</blockquote>
+							<ul>
+								<li>Compared to $D \ge N^{2/5}$</li>
+							</ul>
 						</li>
 						<li class="fragment">This enables finding an element of order $N^{1/5}$ in $N^{1/10+o(1)}$ time for the factorization algorithm
-							<blockquote>
-								Compared to finding an element of order $N^{2/5}$ in $N^{1/5+o(1)}$ time
-							</blockquote>
+							<ul>
+								<li>Compared to finding an element of order $N^{2/5}$ in $N^{1/5+o(1)}$ time</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
@@ -211,6 +211,7 @@
 				<section>
 					<h1>Factoring Given the Residue Class of Divisors</h1>
 					<ul>
+						<li class="fragment">
 						<li class="fragment">Based on Harvey–Hittmeir’s algorithm (2022) for finding all $r$&#39;th power divisors</li>
 						<li class="fragment">Utilizing the $p \equiv 1 \pmod s$ information to reduce the runtime by a factor of $s$</li>
 						<li class="fragment">Define polynomials $f_i(x)$ that vanishe on a small root related to the divisor</li>
@@ -266,7 +267,7 @@
 				},
 				width: "100%",
 				height: "100%",
-				margin: 0.1,
+				margin: 0.2,
 				minScale: 0.2,
 				maxScale: 1.5,
 				controls: true,
