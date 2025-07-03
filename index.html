@@ -37,15 +37,15 @@
 				<section>
 					<h1>Motivation</h1>
 					<ul>
-						<li class="fragment">Integer factorization is a fundamental problem in computational number theory</li>
+						<li class="fragment">Fundamental problem in computational number theory</li>
 						<li class="fragment">RSA encryption relies on the hardness of factoring $N = pq$</li>
 						<li class="fragment">
-							Derandomization is believed to be possible with only polynomial slowdown
+							<b>Derandomization</b> is believed to be possible with only polynomial slowdown, but
 							<br><br>
 							<table class="fragment">
 								<tr>
-									<th>Randomized algorithms</th>
-									<th >Deterministic algorithms</th>
+									<th>Randomized factorization algorithms</th>
+									<th >Deterministic factorization algorithms</th>
 								</tr>
 								<tr>
 									<td rowspan="2">$\exp(\tilde{O}(\sqrt{\log N}))$ (<span class="cite">Dixon 81</span> and <span class="cite">Pomerance</span>)</td>
@@ -62,14 +62,19 @@
 				<section>
 					<h1>The Role of Multiplicative Order in Factorization</h1>
 					<ul>
-						<li class="fragment"><strong>Finding large-order elements</strong> is a natural derandomization problem
+						<li class="fragment">Most elements in $\mathbb{Z}_N^*$ have large order</b>
 							<ul>
-								<li class="fragment">Most elements in $\mathbb{Z}_N^*$ have large order, but it is unclear how to <b>find one deterministically</b></li>
+								<li class="fragment">
+									But it is unclear how to find one <b>deterministically</b>
+								</li>
+								<li class="fragment">
+									Finding large-order elements is a natural derandomization problem
+								</li>
 							</ul>
 						</li>
-						<li class="fragment">Latest factorization algorithm relies on finding $a \in \mathbb{Z}_N^*$ with a <b>large multiplicative order</b>
+						<li class="fragment">Latest factorization algorithm relies on finding such an element
 							<ul>
-								<li class="fragment">They specifically require finding an element whose order is at least roughly $N^{1/5}$</li>
+								<li class="fragment">They specifically require finding an element whose order is at least $N^{1/5}$</li>
 								<li class="fragment">Such an element doesn't necessarily exist</li>
 							</ul>
 						</li>
@@ -105,12 +110,12 @@
 							Outputs
 							<ul>
 								<li>an element $a \in \mathbb{Z}_N^*$ of multiplicative order at least \(D\)</li>
-								<li class="fragment">or a non‑trivial factor of \(N\)</li>
+								<li>or a non‑trivial factor of \(N\)</li>
 								<li class="fragment">As a subroutine in a factorization algorithm this is a “win‑win” result</li>
 							</ul>
 						</li>
 						<li class="fragment">Large-order elements may not always exist</li>
-						<li class="fragment">When applied with \(D=N^{2/5}\), it runs in \(N^{1/5}\) time, matching other algorithm steps</li>
+						<li class="fragment">When applied with \(D=N^{2/5}\), it runs in \(N^{1/5}\) time, matching other factorization's algorithm steps</li>
 					</ul>
 				</section>
 				<section>
@@ -129,7 +134,7 @@
 						</li>
 						<li class="fragment">This enables finding an element of order $N^{1/5}$ in $N^{1/10}$ time for the factorization algorithm
 							<ul>
-								<li>Compared to finding an element of order $N^{2/5}$ in $N^{1/5}$ time</li>
+								<li class="fragment">Compared to finding an element of order $N^{2/5}$ in $N^{1/5}$ time</li>
 							</ul>
 						</li>
 					</ul>
@@ -232,9 +237,12 @@
 									But we can allow $D^{1/2} = N^{ \alpha / 2 } $ run time
 								</li>
 								<li class="fragment">
-									Adjusting (<span class="cite">CHGN08</span>) we achieve $N^{\alpha/2}$ run-time for $D>N^{1/4-\alpha}$
+									Adjusting (<span class="cite">CHGN08</span>) by trading run-time for parameter range we achieve $D>N^{\sqrt 5 -2=0.236...}$
 								</li>
 							</ul>
+						</li>
+						<li class="fragment">
+							But can do even <b>better!</b>
 						</li>
 					</ul>
 				</section>
@@ -260,6 +268,9 @@
 									Find roots of $h(x)$ over the integers
 								</li>
 							</ul>
+						</li>
+						<li>
+							We achieve $D > N^{1/6}$
 						</li>
 					</ul>
 				</section>
