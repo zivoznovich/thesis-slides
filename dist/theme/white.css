@@ -374,3 +374,11 @@ blockquote {
     padding-left: 0.3vw;
     border-radius: 0.5vw;
 }
+
+ul ul {
+  font-size: 1.4vw;
+}
+
+ul ul ul {
+    font-size: 1.3vw;
+}
