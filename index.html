@@ -48,11 +48,11 @@
 									<th >Deterministic algorithms</th>
 								</tr>
 								<tr>
-									<td rowspan="2">$\exp(\tilde{O}(\sqrt{\log N}))$</td>
-									<td>$N^{1/4+o(1)}$ (<span class="cite">Strassen 77</span> and <span class="cite">Pollard 74</span>)</td>
+									<td rowspan="2">$\exp(\tilde{O}(\sqrt{\log N}))$ (<span class="cite">Dixon 81</span> and <span class="cite">Pomerance</span>)</td>
+									<td>$N^{1/4}$ (<span class="cite">Strassen 77</span> and <span class="cite">Pollard 74</span>)</td>
 								</tr>
 								<tr>
-									<td>$N^{1/5+o(1)}$ (<span class="cite">Hittmeir 20</span> and <span class="cite">Harvey 21</span>)</td>
+									<td>$N^{1/5}$ (<span class="cite">Hittmeir 20</span> and <span class="cite">Harvey 21</span>)</td>
 								</tr>
 							</table>
 							<li class="fragment"><em>"Deterministic algorithms" = Deterministic, rigorously proven algorithms</em></li>
@@ -100,7 +100,7 @@
 					<h1>Hittmeir's Algorithm</h1>
 					<ul>
 						<li class="fragment">Given composite \(N\) and \(D \ge N^{2/5}\)</li>
-						<li class="fragment">Runs in time \(D^{1/2+o(1)}\)</li>
+						<li class="fragment">Runs in time \(D^{1/2}\)</li>
 						<li class="fragment">
 							Outputs
 							<ul>
@@ -110,14 +110,14 @@
 							</ul>
 						</li>
 						<li class="fragment">Large-order elements may not always exist</li>
-						<li class="fragment">When applied with \(D=N^{2/5}\), it runs in \(N^{1/5+o(1)}\) time, matching other algorithm steps</li>
+						<li class="fragment">When applied with \(D=N^{2/5}\), it runs in \(N^{1/5}\) time, matching other algorithm steps</li>
 					</ul>
 				</section>
 				<section>
 					<h1>Our Result</h1>
 					<ul>
 						<li class="fragment">We give a deterministic algorithm based on Hittmeir&#39;s algorithm</li>
-						<li class="fragment">Runs in time $D^{1/2+o(1)}$
+						<li class="fragment">Runs in time $D^{1/2}$
 							<ul>
 								<li>Same as previous result</li>
 							</ul>
@@ -127,9 +127,9 @@
 								<li>Compared to $D \ge N^{2/5}$</li>
 							</ul>
 						</li>
-						<li class="fragment">This enables finding an element of order $N^{1/5}$ in $N^{1/10+o(1)}$ time for the factorization algorithm
+						<li class="fragment">This enables finding an element of order $N^{1/5}$ in $N^{1/10}$ time for the factorization algorithm
 							<ul>
-								<li>Compared to finding an element of order $N^{2/5}$ in $N^{1/5+o(1)}$ time</li>
+								<li>Compared to finding an element of order $N^{2/5}$ in $N^{1/5}$ time</li>
 							</ul>
 						</li>
 					</ul>
@@ -205,7 +205,7 @@
 								</tr>
 							</table>
 						</div>
-						<li class="fragment" data-fragment-index="10"><strong>Time Complexity</strong>: $\tilde{O}(\sqrt{D})$</li>
+						<li class="fragment" data-fragment-index="10">Time complexity of $\tilde{O}(\sqrt{D})$</li>
 					</ul>
 				</section>
 				<section>
@@ -229,10 +229,10 @@
 									So $D \geq N^{1/4}$ gives a polynomial-time factorization step
 								</li>
 								<li class="fragment">
-									But we can allow $\sqrt D = N^{ \alpha / 2 } $ run time
+									But we can allow $D^{1/2} = N^{ \alpha / 2 } $ run time
 								</li>
 								<li class="fragment">
-									Adjusting (<span class="cite">CHGN08</span>) we achieve $N^{1/4-\alpha}$ time
+									Adjusting (<span class="cite">CHGN08</span>) we achieve $N^{\alpha/2}$ run-time for $D>N^{1/4-\alpha}$
 								</li>
 							</ul>
 						</li>
