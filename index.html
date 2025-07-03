@@ -212,13 +212,52 @@
 					<h1>Factoring Given the Residue Class of Divisors</h1>
 					<ul>
 						<li class="fragment">
-						<li class="fragment">Based on Harvey–Hittmeir’s algorithm (2022) for finding all $r$&#39;th power divisors</li>
-						<li class="fragment">Utilizing the $p \equiv 1 \pmod s$ information to reduce the runtime by a factor of $s$</li>
-						<li class="fragment">Define polynomials $f_i(x)$ that vanishe on a small root related to the divisor</li>
-						<li class="fragment">Build lattice from $f_i(x)$</li>
-						<li class="fragment">Apply &quot;Lenstra–Lenstra–Lovász&quot; lattice base reduction</li>
-						<li class="fragment">Get small-norm polynomial $h(x)$</li>
-						<li class="fragment">Find small roots over the integers</li>
+							Both Lenstra (84), and Coppersmith, Howgrave-Graham and Nagaraj (08)
+							<ul>
+								<li>
+									Give $s\geq N^\alpha, \alpha > 1/4$
+								</li>
+								<li class="fragment">
+									Find all divisors of $N$ that are congruent to $t \pmod s$ in <b>polynomial-time!</b>
+								</li>
+							</ul>
+						</li>
+						<li class="fragment">
+							In our case we deduce $p\equiv 1 \pmod D$
+							<ul>
+								<li class="fragment">
+									So $D \geq N^{1/4}$ gives a polynomial-time factorization step
+								</li>
+								<li class="fragment">
+									But we can allow $\sqrt D$ run time
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				<section>
+					<h1>Factoring Given the Residue Class of Divisors</h1>
+					<ul>
+						<li class="fragment">
+							Based on Harvey–Hittmeir’s algorithm (2022) for finding all $r$&#39;th power divisors
+							<ul>
+								<li class="fragment">Utilizing the $p \equiv 1 \pmod s$ information to reduce the runtime by a factor of $s$</li>
+							</ul>
+						</li>
+						<li class="fragment">
+							<b>Proof sketch:</b>
+							<ul>
+								<li class="fragment">
+									Construct set of polynomials $f_i(x)$ that vanish on the divisors $\pmod N$
+								</li>
+								<li class="fragment">
+									Find polynomial $h(x) with small coefficients in the lattice spanned by $f_i(x)$'s (using LLL)
+								</li>
+								<li class="fragment">
+									Find roots of $h(x)$ over the integers
+								</li>
+							</ul>
+						</li>
 					</ul>
 				</section>
 				<section>
