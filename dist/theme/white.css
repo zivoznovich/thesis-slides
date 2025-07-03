@@ -376,3 +376,8 @@ ul ul {
 ul ul ul {
     font-size: 1.3vw;
 }
+
+.cite {
+  color: #297301;
+  font-style: italic;
+}

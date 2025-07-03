@@ -49,11 +49,11 @@
 								</tr>
 								<tr>
 									<td>$\exp(\tilde{O}(\sqrt{\log N}))$</td>
-									<td>$N^{1/4+o(1)}$ (70's, Strassen and Pollard)</td>
+									<td>$N^{1/4+o(1)}$ (<span class="cite">Strassen 77</span> and <span class="cite">Pollard 74</span>)</td>
 								</tr>
 								<tr>
 									<td class="fragment">🙂</td>
-									<td>$N^{1/5+o(1)}$ (2021-22, Hittmeir and Harvey)</td>
+									<td>$N^{1/5+o(1)}$ (<span class="cite">Hittmeir 20</span> and <span class="cite">Harvey 21</span>)</td>
 								</tr>
 							</table>
 							<li class="fragment"><em>"Deterministic algorithms" = Deterministic, rigorously proven algorithms</em></li>
@@ -98,7 +98,7 @@
 					</ul>
 				</section>
 				<section>
-					<h1>Hittmeir's Algorithm (2018)</h1>
+					<h1>Hittmeir's Algorithm</h1>
 					<ul>
 						<li class="fragment">Given composite \(N\) and \(D \ge N^{2/5}\)</li>
 						<li class="fragment">Runs in time \(D^{1/2+o(1)}\)</li>
@@ -162,11 +162,11 @@
 
 				</section>
 				<section>
-					<h1>Shanks' Method for Order Computation</h1>
+					<h1>Shanks' Method</h1>
 					<ul>
 						<li class="fragment" data-fragment-index="1"><b>Goal:</b> If $\operatorname{ord}_N(a) < D$ calculate it, otherwise, state that it is larger than $D$</li>
 						<li class="fragment" data-fragment-index="2">
-							<strong>Shanks' Baby-Step Giant-Step</strong> algorithm:
+							<strong>Shanks' Baby-Step Giant-Step</strong> (<span class="cite">Shanks 71</span>) algorithm:
 							<ul>
 								<li class="fragment" id="shanks-switch" data-fragment-index="3">$a^k\equiv 1 \pmod N, k \leq D$</li>
 								<li class="fragment" data-fragment-index="4">
@@ -214,7 +214,7 @@
 					<h1>Factoring Given the Residue Class of Divisors</h1>
 					<ul>
 						<li class="fragment">
-							Both Lenstra (84), and Coppersmith, Howgrave-Graham and Nagaraj (08)
+							Both <span class="cite">Lenstra (84)</span>, and <span class="cite">Coppersmith, Howgrave-Graham and Nagaraj (08)</span>
 							<ul>
 								<li>
 									Give $s\geq N^\alpha, \alpha > 1/4$
@@ -233,8 +233,8 @@
 								<li class="fragment">
 									But we can allow $\sqrt D = N^{ \alpha / 2 } $ run time
 								</li>
-								<li>
-									Adjusting [CHGN08] we achieve $N^{1/4-\alpha}$ time
+								<li class="fragment">
+									Adjusting (<span class="cite">CHGN08</span>) we achieve $N^{1/4-\alpha}$ time
 								</li>
 							</ul>
 						</li>
@@ -244,7 +244,7 @@
 					<h1>Factoring Given the Residue Class of Divisors</h1>
 					<ul>
 						<li class="fragment">
-							Based on Harvey–Hittmeir’s algorithm (2022) for finding all $r$&#39;th power divisors
+							Based on (<span class="cite">Harvey–Hittmeir 22</span>) algorithm for finding all $r$&#39;th power divisors
 							<ul>
 								<li class="fragment">Utilizing the $p \equiv 1 \pmod s$ information to reduce the runtime by a factor of $s$</li>
 							</ul>
@@ -256,7 +256,7 @@
 									Construct set of polynomials $f_i(x)$ that vanish on the divisors $\pmod N$
 								</li>
 								<li class="fragment">
-									Find polynomial $h(x) with small coefficients in the lattice spanned by $f_i(x)$'s (using LLL)
+									Find polynomial $h(x)$ with small coefficients in the lattice spanned by $f_i(x)$'s (using <span class="cite">LLL</span>)
 								</li>
 								<li class="fragment">
 									Find roots of $h(x)$ over the integers
