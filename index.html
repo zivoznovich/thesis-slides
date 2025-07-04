@@ -25,10 +25,11 @@
 					</h1>
 					<ul>
 						<li class="fragment">
-							Given a positive integer \( N \), find integers $p_i, q_j$ such that
+							Given a positive integer $N$, find its prime factorization
 							<ul>
-								<li class="fragment">\( N = p_1^{q_1} \cdot p_2^{q_2} \cdot \dots \cdot p_k^{q_k} \)</li>
-								<li class="fragment">$p_i$'s are prime</li>
+								<li class="fragment">\( N = p_1^{e_1} \cdot p_2^{e_2} \cdot \dots \cdot p_k^{e_k} \)</li>
+								<li class="fragment">$p_i$'s are prime integers</li>
+								<li class="fragment">$e_i$'s are positive integers</li>
 							</ul>
 						</li>
 						<li class="fragment">Note that the input size is \( O(\log N) \)</li>
@@ -41,35 +42,36 @@
 						<li class="fragment">RSA encryption relies on the <b>hardness of factoring</b> $N = pq$</li>
 						<li class="fragment">
 							<b>Derandomization</b> is believed to be possible with <b>only polynomial slowdown</b>, but
-							<br><br>
-							<table class="fragment">
-								<tr>
-									<th colspan="2" style="text-align: center">Factorization algorithms</th>
-								</tr>
-								<tr>
-									<th style="text-align: center">Randomized</th>
-									<th style="text-align: center">Deterministic</th>
-								</tr>
-								<tr>
-									<td rowspan="2" style="text-align: center">$\exp(\tilde{O}(\sqrt{\log N}))$ (<span class="cite">Dixon 81</span> and <span class="cite">Pomerance</span>)</td>
-									<td style="text-align: center">$N^{1/4}$ (<span class="cite">Strassen 77</span> and <span class="cite">Pollard 74</span>)</td>
-								</tr>
-								<tr>
-									<td style="text-align: center">$N^{1/5}$ (<span class="cite">Hittmeir 20</span> and <span class="cite">Harvey 21</span>)</td>
-								</tr>
-							</table>
-							<li class="fragment"><em>"Deterministic algorithms" = Deterministic, rigorously proven algorithms</em></li>
+							<ul>
+								<li class="fragment">Fastest <b>randomized</b> algorithm runs in $\exp(\tilde{O}(\sqrt{\log N}))$ (<span class="cite">Dixon 81</span> and <span class="cite">Pomerance</span>)</li>
+								<li class="fragment">Fastest <b>deterministic</b> algorithms <em>(Deterministic, rigorously proven)</em>
+									<ul>
+										<li class="fragment">
+											Trial division - $N^{1/2}$
+										</li>
+										<li class="fragment">
+											<span class="cite">Lehman 74</span> - $N^{1/3}$
+										</li>
+										<li class="fragment">
+											<span class="cite">Strassen 77</span> and <span class="cite">Pollard 74</span> - $N^{1/4}$
+										</li>
+										<li class="fragment">
+											<span class="cite">Hittmeir 20</span> - $N^{2/9}$
+										</li>
+										<li class="fragment">
+											<span class="cite">Harvey 21</span> - $N^{1/5}$
+										</li>
+									</ul>
+								</li>
+							</ul>
 						</li>
 					</ul>
 				</section>
 				<section>
 					<h1>The Role of Multiplicative Order in Factorization</h1>
 					<ul>
-						<li class="fragment">Most elements in $\mathbb{Z}_N^*$ have large order</b>
+						<li class="fragment">Even when most elements in $\mathbb{Z}_N^*$ have large order, it is unclear how to find one <b>deterministically</b>
 							<ul>
-								<li class="fragment">
-									But it is unclear how to find one <b>deterministically</b>
-								</li>
 								<li class="fragment">
 									Finding large-order elements is a natural derandomization problem
 								</li>
@@ -78,7 +80,7 @@
 						<li class="fragment">Latest factorization algorithm relies on finding such an element
 							<ul>
 								<li class="fragment">They specifically require finding an element whose order is at least $N^{1/5}$</li>
-								<li class="fragment">Such an element doesn't necessarily exist</li>
+								<li class="fragment">Such an element doesn't necessarily exist (but then it’s easy to factor $N$)</li>
 							</ul>
 						</li>
 					</ul>
@@ -124,11 +126,8 @@
 				<section>
 					<h1>Our Result</h1>
 					<ul>
-						<li class="fragment">We give a deterministic algorithm based on Hittmeir&#39;s algorithm</li>
-						<li class="fragment">Runs in time $D^{1/2}$
-							<ul>
-								<li>Same as previous result</li>
-							</ul>
+						<li class="fragment">We improve Hittmeir’s algorithm</li>
+						<li class="fragment">Our algorithm runs in time $D^{1/2}$
 						</li>
 						<li class="fragment">It works for a <strong>wider range of parameters</strong> namely $D \ge N^{1/6}$
 							<ul>
@@ -143,7 +142,7 @@
 					</ul>
 				</section>
 				<section>
-					<h1>Main Algorithm Simplified Overview</h1>
+					<h1>Main Algorithm (Simplified)</h1>
 					<ul>
 						<li class="fragment">
 							Try \(a = 2, 3, \dots\)
@@ -153,6 +152,9 @@
 								</li>
 								<li class="fragment">
 									\(M \gets \mathrm{lcm}(M, \mathrm{ord}_N(a))\)
+								</li>
+								<li class="fragment">
+									[Details Omitted...]
 								</li>
 								<li class="fragment">
 									<b>If</b> \(M \ge D\)
@@ -254,9 +256,6 @@
 					<ul>
 						<li class="fragment">
 							Based on (<span class="cite">Harvey–Hittmeir 22</span>) algorithm for finding all $r$&#39;th power divisors
-							<ul>
-								<li class="fragment">Utilizing the $p \equiv 1 \pmod D$ information to reduce the runtime by a factor of $D$</li>
-							</ul>
 						</li>
 						<li class="fragment">
 							<b>Proof sketch:</b>
