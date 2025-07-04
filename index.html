@@ -71,13 +71,8 @@
 					<h1>The Role of Multiplicative Order in Factorization</h1>
 					<ul>
 						<li class="fragment">Even when most elements in $\mathbb{Z}_N^*$ have large order, it is unclear how to find one <b>deterministically</b>
-							<ul>
-								<li class="fragment">
-									Finding large-order elements is a natural derandomization problem
-								</li>
-							</ul>
 						</li>
-						<li class="fragment">Latest factorization algorithm relies on finding such an element
+						<li class="fragment">Latest factorization algorithm <b>relies on finding such an element</b>
 							<ul>
 								<li class="fragment">They specifically require finding an element whose order is at least $N^{1/5}$</li>
 								<li class="fragment">Such an element doesn't necessarily exist (but then it’s easy to factor $N$)</li>
@@ -120,7 +115,7 @@
 							</ul>
 						</li>
 						<li class="fragment">Large-order elements may not always exist</li>
-						<li class="fragment">When applied with \(D=N^{2/5}\), it runs in \(N^{1/5}\) time, matching other factorization's algorithm steps</li>
+						<li class="fragment">When applied with \(D=N^{2/5}\), it runs in \(N^{1/5}\) time, <b>matching other factorization's algorithm steps</b></li>
 					</ul>
 				</section>
 				<section>
@@ -134,9 +129,9 @@
 								<li>Compared to $D \ge N^{2/5}$</li>
 							</ul>
 						</li>
-						<li class="fragment">This enables finding an element of order $N^{1/5}$ in $N^{1/10}$ time for the factorization algorithm
+						<li class="fragment">This enables finding an element of order $N^{1/5}$ in $N^{1/10}$ time
 							<ul>
-								<li class="fragment">Compared to finding an element of order $N^{2/5}$ in $N^{1/5}$ time</li>
+								<li>Compared to finding an element of order $N^{2/5}$ in $N^{1/5}$ time</li>
 							</ul>
 						</li>
 					</ul>
@@ -236,13 +231,13 @@
 							In our case we deduce $p\equiv 1 \pmod D$
 							<ul>
 								<li class="fragment">
-									So $D \geq N^{1/4}$ gives a polynomial-time factorization step
+									So $D \geq N^{1/4}$ gives a <b>polynomial-time factorization step</b>
 								</li>
 								<li class="fragment">
 									But we can allow $D^{1/2} = N^{ \alpha / 2 } $ run-time
 								</li>
 								<li class="fragment">
-									Adjusting (<span class="cite">CHGN08</span>) by trading run-time for parameter range, we achieve $D>N^{\sqrt 5 -2=0.236...}$
+									Adjusting (<span class="cite">CHGN08</span>) by trading run-time for parameter range, <b>we achieve $D>N^{\sqrt 5 -2=0.236...}$</b>
 								</li>
 							</ul>
 						</li>
@@ -261,10 +256,10 @@
 							<b>Proof sketch:</b>
 							<ul>
 								<li class="fragment">
-									Construct set of polynomials $f_i(x)$ that vanish on the divisors $\pmod N$
+									Construct set of polynomials $f_i(x)$ that vanish on the divisors$\pmod N$
 								</li>
 								<li class="fragment">
-									Find polynomial $h(x)$ with small coefficients in the lattice spanned by $f_i(x)$'s (using <span class="cite">LLL</span>)
+									Find polynomial $h(x)$ with small coefficients in the lattice spanned by $f_i(x)$'s (using <span class="cite">Lenstra, Lenstra and Lov´asz 82</span>)
 								</li>
 								<li class="fragment">
 									Find roots of $h(x)$ over the integers
