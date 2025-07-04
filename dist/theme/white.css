@@ -149,7 +149,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal ul {
   display: inline-block;
   text-align: left;
-  margin: 0.5vw 0 0 0.5vw;
+  margin: 0;
 }
 
 .reveal ol {
@@ -353,7 +353,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 }
 
 li {
-  margin: 0 0 1.0vw 0;
+  margin: 0 0 0.8vw 0;
 }
 
 th {
@@ -374,10 +374,15 @@ ul ul {
 }
 
 ul ul ul {
-    font-size: 1.3vw;
+    font-size: 1.4vw;
 }
 
 .cite {
   color: #297301;
   font-style: italic;
+}
+
+ul {
+  padding-left: 1.2vw;
+  padding-top: 0.5vw;
 }
