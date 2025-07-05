@@ -215,8 +215,12 @@
 							After few iterations, our algorithm either finds $a$ of large order or deduces are all prime factors of $N$ are $1 \pmod D$
 						</li>
 						<li class="fragment">
-							<span class="cite">Lenstra (84)</span>, and <span class="cite">Coppersmith, Howgrave-Graham and Nagaraj (08)</span>:<br>
-							There is a deterministic polynomial time algorithm that given $N$ and $s\geq N^{1/4}$, finds all divisors of $N$ that equal $1 \pmod s$
+							<span class="cite">Lenstra (84)</span>, and <span class="cite">Coppersmith, Howgrave-Graham and Nagaraj (08)</span>:
+							<ul>
+								<li>
+									There is a deterministic polynomial time algorithm that given $N$ and $s\geq N^{1/4}$, finds all divisors of $N$ that equal $1 \pmod s$
+								</li>
+							</ul>
 						</li>
 						<li class="fragment">
 							If $D\geq N^{1/4}$ we can directly use their result
@@ -232,7 +236,7 @@
 						<li class="fragment">
 							By combining (<span class="cite">Lenstra, Coppersmith et al.</span>)’s techniques with a recent algorithm of (<span class="cite">Harvey–Hittmeir 22</span>) we prove:
 							<ul>
-								<li class="fragment">
+								<li>
 									There is a deterministic algorithm that given $N$ and $D\geq N^{1/6}$, finds all divisors of $N$ that equal $1 \pmod D$ in time $D^{1/2}$
 								</li>
 							</ul>
@@ -291,6 +295,12 @@
 				margin: 0.8,
 				controls: true,
 				responsive: true,
+			});
+
+				document.addEventListener('click', (event) => {
+				if (event.target.tagName !== 'A' && event.target.tagName !== 'BUTTON') {
+					Reveal.next();
+				}
 			});
 
 			function math(targetElement) {
